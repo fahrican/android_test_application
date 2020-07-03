@@ -237,4 +237,7 @@ fabric.properties
 
 !/gradle/wrapper/gradle-wrapper.jar
 
+# internal files for me
+todo.txt
+
 # End of https://www.toptal.com/developers/gitignore/api/android,androidstudio,kotlin,java
