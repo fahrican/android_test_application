@@ -1,7 +1,8 @@
-package com.revolut.androidtestapplication
+package com.revolut.androidtestapplication.ui.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.revolut.androidtestapplication.R
 
 class MainActivity : AppCompatActivity() {
 
