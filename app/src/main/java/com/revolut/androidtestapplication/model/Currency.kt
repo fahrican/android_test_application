@@ -5,4 +5,8 @@ data class Currency(
     val shortName: String,
     val fullName: String,
     var rate: Double
-)
+) {
+    fun rateToString(): String {
+        return rate.toString()
+    }
+}
