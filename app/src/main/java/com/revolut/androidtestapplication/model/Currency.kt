@@ -4,5 +4,5 @@ data class Currency(
     val flag: String,
     val shortName: String,
     val fullName: String,
-    val rate: Double
+    var rate: Double
 )
