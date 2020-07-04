@@ -8,7 +8,7 @@ class CurrencyHolder {
 
     val listOfCurrencies = ArrayList<Currency>()
 
-    fun getListOfCurrencies(endpointResponse: EndpointResponse) {
+    fun insertCurrencies(endpointResponse: EndpointResponse) {
         listOfCurrencies.add(
             Currency(
                 "https://restcountries.eu/data/aus.svg",
