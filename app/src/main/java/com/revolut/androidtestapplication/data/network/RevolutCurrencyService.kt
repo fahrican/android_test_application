@@ -9,7 +9,7 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.concurrent.TimeUnit
 
 
-class RevolutCurrencyService {
+object RevolutCurrencyService {
 
     // Here gets the HTTP request logged to Logcat
     private fun generateInterceptorCallback(): Interceptor {
