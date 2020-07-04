@@ -38,7 +38,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     app:imageUrl="@{currency.flag}"
-                    tools:src="@drawable/ic_launcher_background" />
+                    tools:src="@drawable/ic_aud" />
 
             </LinearLayout>
 
