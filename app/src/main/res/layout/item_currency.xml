@@ -5,6 +5,9 @@
 
     <data>
 
+        <variable
+            name="currency"
+            type="com.revolut.androidtestapplication.model.Currency" />
     </data>
 
     <androidx.cardview.widget.CardView
@@ -34,19 +37,19 @@
                     android:id="@+id/currency_flag"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    app:imageUrl="@{data.images.fixedHeightSmallStill.url}"
+                    app:imageUrl="@{currency.flag}"
                     tools:src="@drawable/ic_launcher_background" />
 
             </LinearLayout>
 
             <TextView
-                android:id="@+id/currency"
+                android:id="@+id/currency_short_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="8dp"
-                android:text="@{data.type}"
+                android:text="@{currency.shortName}"
                 android:textColor="@android:color/black"
                 android:textSize="16sp"
                 android:textStyle="bold"
@@ -61,12 +64,20 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
-                android:text="@{data.title}"
+                android:text="@{currency.fullName}"
                 android:textColor="@android:color/black"
                 android:textSize="12sp"
                 app:layout_constraintStart_toEndOf="@id/image_container"
-                app:layout_constraintTop_toBottomOf="@id/currency"
+                app:layout_constraintTop_toBottomOf="@id/currency_short_name"
                 tools:text="Euro" />
+
+            <EditText
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:hint="0.00"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="112.98" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
