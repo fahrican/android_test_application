@@ -1,4 +1,4 @@
-package com.revolut.androidtestapplication.di.module
+package com.revolut.androidtestapplication.di
 
 import com.revolut.androidtestapplication.data.network.RevolutCurrencyApi
 import com.revolut.androidtestapplication.data.network.RevolutCurrencyService
