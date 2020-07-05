@@ -7,13 +7,10 @@ import com.revolut.androidtestapplication.data.network.RevolutCurrencyApi
 import com.revolut.androidtestapplication.di.DaggerAppComponent
 import com.revolut.androidtestapplication.helper.CurrencyHolder
 import com.revolut.androidtestapplication.model.Currency
-import com.revolut.androidtestapplication.model.EndpointResponse
-import io.reactivex.SingleObserver
-import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
-import io.reactivex.observers.DisposableObserver
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
+
 
 class CurrencyRepository {
 
@@ -40,7 +37,6 @@ class CurrencyRepository {
     fun fetchCurrencies(): Disposable { //todo: here should go in the currency code
         return revolutService.getEndpointResponse("EUR")
             .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
             .subscribe(
                 {
                     _isInProgress.postValue(true)

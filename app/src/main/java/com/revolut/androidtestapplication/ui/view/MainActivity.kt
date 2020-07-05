@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
 
         Observable.interval(0,1, TimeUnit.SECONDS)
             .timeInterval()
-            .observeOn(AndroidSchedulers.mainThread()) //todo: maybe remove that
+            .observeOn(AndroidSchedulers.mainThread())
             .subscribe { viewModel.repository.fetchCurrencies() }
 
         setUpRecyclerView()
