@@ -1,6 +1,7 @@
 package com.revolut.androidtestapplication.model
 
 data class Rates(
+    val EUR: Double?,
     val AUD: Double,
     val BGN: Double,
     val BRL: Double,

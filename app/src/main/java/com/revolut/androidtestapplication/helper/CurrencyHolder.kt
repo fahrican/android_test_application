@@ -14,7 +14,7 @@ class CurrencyHolder {
                 "https://upload.wikimedia.org/wikipedia/commons/b/b7/Flag_of_Europe.svg",
                 "EUR",
                 "Euro",
-                endpointResponse.rates.AUD
+                endpointResponse.rates.EUR ?: 1.00
             )
         )
         listOfCurrencies.add(
