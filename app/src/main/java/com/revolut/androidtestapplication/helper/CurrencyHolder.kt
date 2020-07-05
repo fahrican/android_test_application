@@ -22,7 +22,7 @@ class CurrencyHolder {
                 "https://restcountries.eu/data/aus.svg",
                 "AUD",
                 "Australian dollar",
-                endpointResponse.rates.AUD
+                endpointResponse.rates.AUD ?: 1.00
             )
         )
         listOfCurrencies.add(
@@ -30,7 +30,7 @@ class CurrencyHolder {
                 "https://restcountries.eu/data/bgr.svg",
                 "BGN",
                 "Bulgarian lev",
-                endpointResponse.rates.BGN
+                endpointResponse.rates.BGN ?: 1.00
             )
         )
         listOfCurrencies.add(
@@ -38,7 +38,7 @@ class CurrencyHolder {
                 "https://restcountries.eu/data/bra.svg",
                 "BRL",
                 "Brazilian real",
-                endpointResponse.rates.BRL
+                endpointResponse.rates.BRL ?: 1.00
             )
         )
         listOfCurrencies.add(
@@ -46,7 +46,7 @@ class CurrencyHolder {
                 "https://restcountries.eu/data/can.svg",
                 "CAD",
                 "Canadian dollar",
-                endpointResponse.rates.CAD
+                endpointResponse.rates.CAD ?: 1.00
             )
         )
         listOfCurrencies.add(
@@ -54,7 +54,7 @@ class CurrencyHolder {
                 "https://restcountries.eu/data/che.svg",
                 "CHF",
                 "Swiss franc",
-                endpointResponse.rates.CHF
+                endpointResponse.rates.CHF ?: 1.00
             )
         )
         listOfCurrencies.add(
@@ -62,7 +62,7 @@ class CurrencyHolder {
                 "https://restcountries.eu/data/chn.svg",
                 "CNY",
                 "Chinese yuan",
-                endpointResponse.rates.CNY
+                endpointResponse.rates.CNY ?: 1.00 ?: 1.00 ?: 1.00 ?: 1.00
             )
         )
         listOfCurrencies.add(
@@ -70,7 +70,7 @@ class CurrencyHolder {
                 "https://restcountries.eu/data/cze.svg",
                 "CZK",
                 "Czech koruna",
-                endpointResponse.rates.CZK
+                endpointResponse.rates.CZK ?: 1.00 ?: 1.00 ?: 1.00 ?: 1.00
             )
         )
         listOfCurrencies.add(
@@ -78,7 +78,7 @@ class CurrencyHolder {
                 "https://restcountries.eu/data/dnk.svg",
                 "DKK",
                 "Danish krone",
-                endpointResponse.rates.DKK
+                endpointResponse.rates.DKK ?: 1.00 ?: 1.00 ?: 1.00 ?: 1.00
             )
         )
         listOfCurrencies.add(
@@ -86,7 +86,7 @@ class CurrencyHolder {
                 "https://restcountries.eu/data/gbr.svg",
                 "GBP",
                 "British pound",
-                endpointResponse.rates.GBP
+                endpointResponse.rates.GBP ?: 1.00 ?: 1.00 ?: 1.00 ?: 1.00
             )
         )
         listOfCurrencies.add(
@@ -94,7 +94,7 @@ class CurrencyHolder {
                 "https://restcountries.eu/data/hkg.svg",
                 "HKD",
                 "Hong Kong dollar",
-                endpointResponse.rates.HKD
+                endpointResponse.rates.HKD ?: 1.00 ?: 1.00 ?: 1.00
             )
         )
         listOfCurrencies.add(
@@ -102,7 +102,7 @@ class CurrencyHolder {
                 "https://restcountries.eu/data/hrv.svg",
                 "HRK",
                 "Croatian kuna",
-                endpointResponse.rates.HRK
+                endpointResponse.rates.HRK ?: 1.00 ?: 1.00 ?: 1.00
             )
         )
         listOfCurrencies.add(
@@ -110,7 +110,7 @@ class CurrencyHolder {
                 "https://restcountries.eu/data/hun.svg",
                 "HUF",
                 "Hungarian forint",
-                endpointResponse.rates.HUF
+                endpointResponse.rates.HUF ?: 1.00 ?: 1.00 ?: 1.00
             )
         )
         listOfCurrencies.add(
@@ -118,7 +118,7 @@ class CurrencyHolder {
                 "https://restcountries.eu/data/idn.svg",
                 "IDR",
                 "Indonesian rupiah",
-                endpointResponse.rates.IDR
+                endpointResponse.rates.IDR ?: 1.00 ?: 1.00 ?: 1.00
             )
         )
         listOfCurrencies.add(
@@ -126,7 +126,7 @@ class CurrencyHolder {
                 "https://restcountries.eu/data/isr.svg",
                 "ILS",
                 "Israeli new shekel",
-                endpointResponse.rates.ILS
+                endpointResponse.rates.ILS ?: 1.00 ?: 1.00 ?: 1.00
             )
         )
         listOfCurrencies.add(
@@ -134,7 +134,7 @@ class CurrencyHolder {
                 "https://restcountries.eu/data/ind.svg",
                 "INR",
                 "Indian rupee",
-                endpointResponse.rates.INR
+                endpointResponse.rates.INR ?: 1.00 ?: 1.00 ?: 1.00
             )
         )
         listOfCurrencies.add(
@@ -142,7 +142,7 @@ class CurrencyHolder {
                 "https://restcountries.eu/data/isl.svg",
                 "ISK",
                 "Icelandic króna",
-                endpointResponse.rates.ISK
+                endpointResponse.rates.ISK ?: 1.00 ?: 1.00
             )
         )
         listOfCurrencies.add(
@@ -150,7 +150,7 @@ class CurrencyHolder {
                 "https://restcountries.eu/data/jpn.svg",
                 "JPY",
                 "Japanese yen",
-                endpointResponse.rates.JPY
+                endpointResponse.rates.JPY ?: 1.00 ?: 1.00
             )
         )
         listOfCurrencies.add(
@@ -158,7 +158,7 @@ class CurrencyHolder {
                 "https://restcountries.eu/data/kor.svg",
                 "KRW",
                 "South Korean won",
-                endpointResponse.rates.KRW
+                endpointResponse.rates.KRW ?: 1.00 ?: 1.00
             )
         )
         listOfCurrencies.add(
@@ -166,7 +166,7 @@ class CurrencyHolder {
                 "https://restcountries.eu/data/mex.svg",
                 "MXN",
                 "Mexican peso",
-                endpointResponse.rates.MXN
+                endpointResponse.rates.MXN ?: 1.00 ?: 1.00
             )
         )
         listOfCurrencies.add(
@@ -174,7 +174,7 @@ class CurrencyHolder {
                 "https://restcountries.eu/data/mys.svg",
                 "MYR",
                 "Malaysian ringgit",
-                endpointResponse.rates.MYR
+                endpointResponse.rates.MYR ?: 1.00 ?: 1.00
             )
         )
         listOfCurrencies.add(
@@ -182,7 +182,7 @@ class CurrencyHolder {
                 "https://restcountries.eu/data/nor.svg",
                 "NOK",
                 "Norwegian krone",
-                endpointResponse.rates.NOK
+                endpointResponse.rates.NOK ?: 1.00 ?: 1.00
             )
         )
         listOfCurrencies.add(
@@ -190,7 +190,7 @@ class CurrencyHolder {
                 "https://restcountries.eu/data/nzl.svg",
                 "NZD",
                 "New Zealand dollar",
-                endpointResponse.rates.NZD
+                endpointResponse.rates.NZD ?: 1.00 ?: 1.00
             )
         )
         listOfCurrencies.add(
@@ -198,7 +198,7 @@ class CurrencyHolder {
                 "https://restcountries.eu/data/phl.svg",
                 "PHP",
                 "Philippine peso",
-                endpointResponse.rates.PHP
+                endpointResponse.rates.PHP ?: 1.00 ?: 1.00
             )
         )
         listOfCurrencies.add(
@@ -206,7 +206,7 @@ class CurrencyHolder {
                 "https://restcountries.eu/data/pol.svg",
                 "PLN",
                 "Polish złoty",
-                endpointResponse.rates.PLN
+                endpointResponse.rates.PLN ?: 1.00
             )
         )
         listOfCurrencies.add(
@@ -214,7 +214,7 @@ class CurrencyHolder {
                 "https://restcountries.eu/data/rou.svg",
                 "RON",
                 "Romanian leu",
-                endpointResponse.rates.RON
+                endpointResponse.rates.RON ?: 1.00
             )
         )
         listOfCurrencies.add(
@@ -222,7 +222,7 @@ class CurrencyHolder {
                 "https://restcountries.eu/data/rus.svg",
                 "RUB",
                 "Russian ruble",
-                endpointResponse.rates.RUB
+                endpointResponse.rates.RUB ?: 1.00
             )
         )
         listOfCurrencies.add(
@@ -230,7 +230,7 @@ class CurrencyHolder {
                 "https://restcountries.eu/data/swe.svg",
                 "SEK",
                 "Swedish krona",
-                endpointResponse.rates.SEK
+                endpointResponse.rates.SEK ?: 1.00
             )
         )
         listOfCurrencies.add(
@@ -238,7 +238,7 @@ class CurrencyHolder {
                 "https://restcountries.eu/data/sgp.svg",
                 "SGD",
                 "Singapore dollar",
-                endpointResponse.rates.SGD
+                endpointResponse.rates.SGD ?: 1.00
             )
         )
         listOfCurrencies.add(
@@ -246,7 +246,7 @@ class CurrencyHolder {
                 "https://restcountries.eu/data/tha.svg",
                 "THB",
                 "Thai baht",
-                endpointResponse.rates.THB
+                endpointResponse.rates.THB ?: 1.00
             )
         )
         listOfCurrencies.add(
@@ -254,7 +254,7 @@ class CurrencyHolder {
                 "https://restcountries.eu/data/usa.svg",
                 "USD",
                 "United States dollar",
-                endpointResponse.rates.USD
+                endpointResponse.rates.USD ?: 1.00
             )
         )
         listOfCurrencies.add(
@@ -262,7 +262,7 @@ class CurrencyHolder {
                 "https://restcountries.eu/data/zaf.svg",
                 "ZAR",
                 "South African rand",
-                endpointResponse.rates.ZAR
+                endpointResponse.rates.ZAR ?: 1.00
             )
         )
     }
