@@ -11,6 +11,14 @@ class CurrencyHolder {
     fun insertCurrencies(endpointResponse: EndpointResponse) {
         listOfCurrencies.add(
             Currency(
+                "https://upload.wikimedia.org/wikipedia/commons/b/b7/Flag_of_Europe.svg",
+                "EUR",
+                "Euro",
+                endpointResponse.rates.AUD
+            )
+        )
+        listOfCurrencies.add(
+            Currency(
                 "https://restcountries.eu/data/aus.svg",
                 "AUD",
                 "Australian dollar",
