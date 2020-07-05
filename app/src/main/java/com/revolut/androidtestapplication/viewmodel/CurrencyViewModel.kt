@@ -8,7 +8,6 @@ import javax.inject.Inject
 
 class CurrencyViewModel : ViewModel() {
 
-
     @Inject
     lateinit var repository: CurrencyRepository
 
@@ -17,6 +16,7 @@ class CurrencyViewModel : ViewModel() {
 
     init {
         DaggerAppComponent.create().inject(this)
+        compositeDisposable.add(repository.fetchCurrencies())
     }
 
     override fun onCleared() {
