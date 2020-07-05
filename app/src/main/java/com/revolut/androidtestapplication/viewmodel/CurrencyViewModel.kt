@@ -12,12 +12,11 @@ class CurrencyViewModel : ViewModel() {
     @Inject
     lateinit var repository: CurrencyRepository
 
-    private val compositeDisposable by lazy { CompositeDisposable() }
+    val compositeDisposable by lazy { CompositeDisposable() }
 
 
     init {
         DaggerAppComponent.create().inject(this)
-        compositeDisposable.add(repository.fetchCurrencies())
     }
 
     override fun onCleared() {
