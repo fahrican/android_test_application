@@ -42,6 +42,11 @@ class MainActivity : AppCompatActivity() {
         observeLiveData()
     }
 
+    override fun onPause() {
+        super.onPause()
+        viewModel.compositeDisposable.clear()
+    }
+
     private fun setUpRecyclerView() {
         recycler_view.apply {
             setHasFixedSize(true)
