@@ -2,13 +2,23 @@ package com.revolut.androidtestapplication.internal
 
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
-import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
+import com.bumptech.glide.request.RequestOptions
+import com.github.twocoffeesoneteam.glidetovectoryou.GlideToVectorYou
 
 
 @BindingAdapter("imageUrl")
 fun setImageUrl(imageView: ImageView, url: String?) {
-    Glide.with(imageView)
+
+    val requestBuilder = GlideToVectorYou
+        .init()
+        .with(imageView.context)
+        .requestBuilder
+
+    requestBuilder
         .load(url)
-        .centerCrop()
+        .transition(DrawableTransitionOptions.withCrossFade())
+        .apply(RequestOptions().centerCrop())
         .into(imageView)
+
 }
