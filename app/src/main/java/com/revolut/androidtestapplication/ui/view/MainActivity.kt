@@ -113,3 +113,14 @@ class MainActivity : AppCompatActivity() {
     }
 
 }
+
+interface MoveObjectListener {
+
+    fun moveObjectToFirstPlace(
+        position: Int,
+        flag: String,
+        code: String,
+        fullName: String,
+        rate: String
+    )
+}
