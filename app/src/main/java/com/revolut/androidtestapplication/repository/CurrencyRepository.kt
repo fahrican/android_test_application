@@ -29,6 +29,8 @@ class CurrencyRepository {
     val isError: LiveData<Boolean>
         get() = _isError
 
+    private val currencyHolder = CurrencyHolder() //todo: rework this
+
 
     init {
         DaggerAppComponent.create().inject(this)
@@ -41,7 +43,6 @@ class CurrencyRepository {
                 {
                     _isInProgress.postValue(true)
                     if (it != null) {
-                        val currencyHolder = CurrencyHolder()
                         currencyHolder.insertCurrencies(it)
                         _currencies.postValue(currencyHolder.listOfCurrencies)
                     }
