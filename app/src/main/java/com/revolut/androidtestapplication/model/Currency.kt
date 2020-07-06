@@ -1,9 +1,9 @@
 package com.revolut.androidtestapplication.model
 
 data class Currency(
-    val flag: String,
-    val shortName: String,
-    val fullName: String,
-    val rate: Double,
-    val rateToString: String = rate.toString()
+    var flag: String,
+    var shortName: String,
+    var fullName: String,
+    var rate: Double,
+    var rateToString: String = rate.toString()
 )
