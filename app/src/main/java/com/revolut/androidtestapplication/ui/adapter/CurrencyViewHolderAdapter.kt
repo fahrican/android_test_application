@@ -9,6 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.revolut.androidtestapplication.R
 import com.revolut.androidtestapplication.databinding.ItemCurrencyBinding
 import com.revolut.androidtestapplication.model.Currency
+import com.revolut.androidtestapplication.ui.view.MoveObjectListener
+import java.lang.ref.WeakReference
 import kotlin.collections.ArrayList
 
 
@@ -18,6 +20,8 @@ class CurrencyAdapter(
 
 
     lateinit var adapterContext: Context
+    var listener: WeakReference<MoveObjectListener>? = null
+
 
     override fun getItemCount() = currencies.size
 
@@ -35,7 +39,8 @@ class CurrencyAdapter(
     override fun onBindViewHolder(holder: CurrencyViewHolder, position: Int) {
         holder.itemCurrencyBinding.currency = currencies[position]
         holder.itemCurrencyBinding.currencyCard.setOnClickListener {
-            Toast.makeText(adapterContext, "Taped on currency", Toast.LENGTH_SHORT).show()
+            Toast.makeText(adapterContext, "Taped on ${currencies[position].shortName}", Toast.LENGTH_SHORT).show()
+            listener?.get()?.moveObjectToFirstPlace(position, currencies[position].flag, currencies[position].shortName, currencies[position].fullName, currencies[position].rateToString)
         }
     }
 
