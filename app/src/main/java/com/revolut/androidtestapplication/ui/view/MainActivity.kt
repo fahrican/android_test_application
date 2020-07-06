@@ -13,12 +13,12 @@ import com.revolut.androidtestapplication.viewmodel.CurrencyViewModel
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import kotlinx.android.synthetic.main.activity_main.*
+import java.lang.ref.WeakReference
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
 
-class MainActivity : AppCompatActivity() {
-
+class MainActivity : AppCompatActivity(), MoveObjectListener {
 
     @Inject
     lateinit var currencyAdapter: CurrencyAdapter
@@ -31,6 +31,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         DaggerAppComponent.create().inject(this)
+
+        currencyAdapter.listener = WeakReference(this)
 
         /*Observable.interval(0,1, TimeUnit.SECONDS)
             .timeInterval()
