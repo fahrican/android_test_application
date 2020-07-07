@@ -39,8 +39,12 @@ class CurrencyAdapter(
     override fun onBindViewHolder(holder: CurrencyViewHolder, position: Int) {
         holder.itemCurrencyBinding.currency = currencies[position]
         holder.itemCurrencyBinding.currencyCard.setOnClickListener {
-            Toast.makeText(adapterContext, "Taped on ${currencies[position].shortName}", Toast.LENGTH_SHORT).show()
-            listener?.get()?.moveObjectToFirstPlace(position, currencies[position].flag, currencies[position].shortName, currencies[position].fullName, currencies[position].rate)
+            Toast.makeText(
+                adapterContext,
+                "Taped on ${currencies[position].shortName}",
+                Toast.LENGTH_SHORT
+            ).show()
+            listener?.get()?.moveObjectToFirstPlace(position, currencies[position].shortName)
         }
     }
 
