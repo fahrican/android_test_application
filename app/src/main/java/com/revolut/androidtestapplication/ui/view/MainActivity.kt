@@ -64,28 +64,8 @@ class MainActivity : AppCompatActivity(), MoveObjectListener {
         viewModel.compositeDisposable.clear()
     }
 
-    override fun moveObjectToFirstPlace(
-        position: Int,
-        flag: String,
-        code: String,
-        fullName: String,
-        rate: Double
-    ) {
-        val currentFirstCurrency = currencyAdapter.currencies[0]
-
-        // Assign values from first currency in list to tapped one
-        currencyAdapter.currencies[position].flag = currentFirstCurrency.flag
-        currencyAdapter.currencies[position].shortName = currentFirstCurrency.shortName
-        currencyAdapter.currencies[position].fullName = currentFirstCurrency.fullName
-
-        // Assign values from selected currency to first one
-        currencyAdapter.currencies[0].flag = flag
-        currencyAdapter.currencies[0].shortName = code
-        currencyAdapter.currencies[0].fullName = fullName
-
-        _userEnteredCurrency.value = code
-
-        viewModel.repository.fetchUserEnteredCurrency(userEnteredCurrency)
+    override fun moveObjectToFirstPlace(position: Int, code: String) {
+        viewModel.repository.fetchUserEnteredCurrency(code, position)
     }
 
     private fun setUpRecyclerView() {
