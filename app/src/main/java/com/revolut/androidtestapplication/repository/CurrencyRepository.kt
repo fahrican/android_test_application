@@ -58,7 +58,7 @@ class CurrencyRepository {
                 })
     }
 
-    fun fetchUserEnteredCurrency(currency: LiveData<String>): Disposable {
+    fun fetchUserEnteredCurrency(currency: LiveData<String>, position: Int): Disposable {
         val currencyCode = currency.value ?: ""
         return revolutService.getEndpointResponse(currencyCode)
             .subscribeOn(Schedulers.io())
@@ -66,6 +66,9 @@ class CurrencyRepository {
                 {
                     if (it != null) {
                         val list = currencyHolder.insertCurrencies(it)
+                        val selectedCurrency = list[position]
+                        list.removeAt(position)
+                        list.add(0, selectedCurrency)
                         _currencies.postValue(list)
                     }
                 },
