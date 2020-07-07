@@ -40,7 +40,7 @@ class CurrencyAdapter(
         holder.itemCurrencyBinding.currency = currencies[position]
         holder.itemCurrencyBinding.currencyCard.setOnClickListener {
             Toast.makeText(adapterContext, "Taped on ${currencies[position].shortName}", Toast.LENGTH_SHORT).show()
-            listener?.get()?.moveObjectToFirstPlace(position, currencies[position].flag, currencies[position].shortName, currencies[position].fullName, currencies[position].rateToString)
+            listener?.get()?.moveObjectToFirstPlace(position, currencies[position].flag, currencies[position].shortName, currencies[position].fullName, currencies[position].rate)
         }
     }
 
