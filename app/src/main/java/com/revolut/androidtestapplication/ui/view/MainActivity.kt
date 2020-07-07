@@ -82,9 +82,10 @@ class MainActivity : AppCompatActivity(), MoveObjectListener {
         currencyAdapter.currencies[0].flag = flag
         currencyAdapter.currencies[0].shortName = code
         currencyAdapter.currencies[0].fullName = fullName
-        currencyAdapter.currencies[0].rateToString = rate
 
-        observeCurrencies()
+        _userEnteredCurrency.value = code
+
+        viewModel.repository.fetchUserEnteredCurrency(userEnteredCurrency)
     }
 
     private fun setUpRecyclerView() {
