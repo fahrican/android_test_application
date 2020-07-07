@@ -51,6 +51,14 @@ class MainActivity : AppCompatActivity(), MoveObjectListener {
         observeLiveData()
     }
 
+    override fun onResume() {
+        super.onResume()
+        /*Observable.interval(0, 1, TimeUnit.SECONDS)
+            .timeInterval()
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe { viewModel.repository.fetchUserEnteredCurrency(userEnteredCurrency) }*/
+    }
+
     override fun onPause() {
         super.onPause()
         viewModel.compositeDisposable.clear()
@@ -61,7 +69,7 @@ class MainActivity : AppCompatActivity(), MoveObjectListener {
         flag: String,
         code: String,
         fullName: String,
-        rate: String
+        rate: Double
     ) {
         val currentFirstCurrency = currencyAdapter.currencies[0]
 
@@ -69,7 +77,6 @@ class MainActivity : AppCompatActivity(), MoveObjectListener {
         currencyAdapter.currencies[position].flag = currentFirstCurrency.flag
         currencyAdapter.currencies[position].shortName = currentFirstCurrency.shortName
         currencyAdapter.currencies[position].fullName = currentFirstCurrency.fullName
-        currencyAdapter.currencies[position].rateToString = currentFirstCurrency.rateToString
 
         // Assign values from selected currency to first one
         currencyAdapter.currencies[0].flag = flag
@@ -154,6 +161,6 @@ interface MoveObjectListener {
         flag: String,
         code: String,
         fullName: String,
-        rate: String
+        rate: Double
     )
 }
