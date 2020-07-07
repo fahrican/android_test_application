@@ -6,10 +6,8 @@ import com.revolut.androidtestapplication.model.EndpointResponse
 
 class CurrencyHolder {
 
-    val listOfCurrencies = ArrayList<Currency>()
-
-    fun insertCurrencies(endpointResponse: EndpointResponse) {
-        val currencies = listOf<Currency>(
+    fun insertCurrencies(endpointResponse: EndpointResponse): ArrayList<Currency> {
+        return arrayListOf(
             Currency(
                 "https://upload.wikimedia.org/wikipedia/commons/b/b7/Flag_of_Europe.svg",
                 "EUR",
@@ -203,6 +201,5 @@ class CurrencyHolder {
                 endpointResponse.rates.ZAR ?: 1.00
             )
         )
-        listOfCurrencies.addAll(currencies)
     }
 }
