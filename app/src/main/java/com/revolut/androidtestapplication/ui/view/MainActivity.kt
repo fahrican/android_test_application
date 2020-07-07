@@ -157,11 +157,5 @@ class MainActivity : AppCompatActivity(), MoveObjectListener {
 
 interface MoveObjectListener {
 
-    fun moveObjectToFirstPlace(
-        position: Int,
-        flag: String,
-        code: String,
-        fullName: String,
-        rate: Double
-    )
+    fun moveObjectToFirstPlace(position: Int, code: String)
 }
