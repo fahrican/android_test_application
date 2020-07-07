@@ -16,7 +16,7 @@ class CurrencyViewModel : ViewModel() {
 
     init {
         DaggerAppComponent.create().inject(this)
-        compositeDisposable.add(repository.fetchCurrencies())
+        compositeDisposable.add(repository.initialFetchOfEuroRate())
     }
 
     override fun onCleared() {
