@@ -25,6 +25,10 @@ class MainActivity : AppCompatActivity(), MoveObjectListener {
 
     private val viewModel: CurrencyViewModel by viewModels()
 
+    private val _userEnteredCurrency = MutableLiveData<String>()
+    val userEnteredCurrency: LiveData<String>
+        get() = _userEnteredCurrency
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
