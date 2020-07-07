@@ -58,4 +58,29 @@ class CurrencyRepository {
                 })
     }
 
+    fun fetchUserEnteredCurrency(currency: LiveData<String>): Disposable {
+        val currencyCode = currency.value ?: ""
+        return revolutService.getEndpointResponse(currencyCode)
+            .subscribeOn(Schedulers.io())
+            .subscribe(
+                {
+                    if (it != null) {
+                        val list = currencyHolder.insertCurrencies(it)
+                        _currencies.postValue(list)
+                    }
+                },
+                {
+                    _isInProgress.postValue(true)
+                    Log.e("subscribeToObserver()", "network error: ${it.message}")
+                    _isError.postValue(true)
+                    _isInProgress.postValue(false)
+                }
+            )
+    }
+
+    /*fun assignRates(endpointResponse: EndpointResponse, currency: String) {
+
+        _currencies.value.
+    }*/
+
 }
