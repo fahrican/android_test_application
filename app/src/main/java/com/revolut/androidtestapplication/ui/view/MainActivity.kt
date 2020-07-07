@@ -4,10 +4,13 @@ import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DefaultItemAnimator
 import com.revolut.androidtestapplication.R
 import com.revolut.androidtestapplication.di.DaggerAppComponent
+import com.revolut.androidtestapplication.internal.EURO
 import com.revolut.androidtestapplication.ui.adapter.CurrencyAdapter
 import com.revolut.androidtestapplication.viewmodel.CurrencyViewModel
 import io.reactivex.Observable
