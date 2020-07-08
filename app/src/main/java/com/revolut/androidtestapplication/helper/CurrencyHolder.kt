@@ -203,7 +203,9 @@ class CurrencyHolder {
             )
         )
 
-        Collections.swap(currencies, 0, position)
+        val currency = currencies[position]
+        currencies.removeAt(position)
+        currencies.add(0, currency)
         return currencies
     }
 
