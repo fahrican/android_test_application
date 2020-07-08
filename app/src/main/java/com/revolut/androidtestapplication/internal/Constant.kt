@@ -5,3 +5,4 @@ const val BASE_URL = "https://hiring.revolut.codes/"
 const val ENDPOINT = "api/android/latest"
 const val BASE_CURRENCY = "base"
 const val EURO = "EUR"
+const val POSITION_OF_EURO_IN_DEFAULT_LIST = 8
