@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.DefaultItemAnimator
 import com.revolut.androidtestapplication.R
 import com.revolut.androidtestapplication.di.DaggerAppComponent
 import com.revolut.androidtestapplication.internal.EURO
+import com.revolut.androidtestapplication.internal.POSITION_OF_EURO_IN_DEFAULT_LIST
 import com.revolut.androidtestapplication.ui.adapter.CurrencyAdapter
 import com.revolut.androidtestapplication.viewmodel.CurrencyViewModel
 import io.reactivex.Observable
@@ -32,7 +33,7 @@ class MainActivity : AppCompatActivity(), MoveObjectListener {
     private val userEnteredCurrency: LiveData<String>
         get() = _userEnteredCurrency
 
-    private val _positionOfCurrency = MutableLiveData<Int>(0)
+    private val _positionOfCurrency = MutableLiveData<Int>(POSITION_OF_EURO_IN_DEFAULT_LIST)
     private val positionOfCurrency: LiveData<Int>
         get() = _positionOfCurrency
 
