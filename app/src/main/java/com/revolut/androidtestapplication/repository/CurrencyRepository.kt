@@ -7,6 +7,7 @@ import com.revolut.androidtestapplication.data.network.RevolutCurrencyApi
 import com.revolut.androidtestapplication.di.DaggerAppComponent
 import com.revolut.androidtestapplication.helper.CurrencyHolder
 import com.revolut.androidtestapplication.internal.EURO
+import com.revolut.androidtestapplication.internal.POSITION_OF_EURO_IN_DEFAULT_LIST
 import com.revolut.androidtestapplication.model.Currency
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
@@ -44,7 +45,7 @@ class CurrencyRepository {
                 {
                     _isInProgress.postValue(true)
                     if (it != null) {
-                        val list = currencyHolder.retrieveCurrencies(it, 0)
+                        val list = currencyHolder.retrieveCurrencies(it, POSITION_OF_EURO_IN_DEFAULT_LIST)
                         _currencies.postValue(list)
                     }
                     _isInProgress.postValue(false)
