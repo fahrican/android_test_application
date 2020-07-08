@@ -8,7 +8,6 @@ import com.revolut.androidtestapplication.di.DaggerAppComponent
 import com.revolut.androidtestapplication.helper.CurrencyHolder
 import com.revolut.androidtestapplication.internal.EURO
 import com.revolut.androidtestapplication.model.Currency
-import com.revolut.androidtestapplication.model.EndpointResponse
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
@@ -45,7 +44,7 @@ class CurrencyRepository {
                 {
                     _isInProgress.postValue(true)
                     if (it != null) {
-                        val list = currencyHolder.insertCurrencies(it)
+                        val list = currencyHolder.retrieveCurrencies(it, 0)
                         _currencies.postValue(list)
                     }
                     _isInProgress.postValue(false)
@@ -64,10 +63,7 @@ class CurrencyRepository {
             .subscribe(
                 {
                     if (it != null) {
-                        val list = currencyHolder.insertCurrencies(it)
-                        val selectedCurrency = list[position]
-                        list.removeAt(position)
-                        list.add(0, selectedCurrency)
+                        val list = currencyHolder.retrieveCurrencies(it, position)
                         _currencies.postValue(list)
                     }
                 },
