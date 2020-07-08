@@ -2,7 +2,6 @@ package com.revolut.androidtestapplication.helper
 
 import com.revolut.androidtestapplication.model.Currency
 import com.revolut.androidtestapplication.model.EndpointResponse
-import java.util.*
 import kotlin.collections.ArrayList
 
 
@@ -10,12 +9,6 @@ class CurrencyHolder {
 
     fun retrieveCurrencies(endpointResponse: EndpointResponse, position: Int): ArrayList<Currency> {
         val currencies = arrayListOf(
-            Currency(
-                "https://upload.wikimedia.org/wikipedia/commons/b/b7/Flag_of_Europe.svg",
-                "EUR",
-                "Euro",
-                endpointResponse.rates.EUR ?: 1.00
-            ),
             Currency(
                 "https://restcountries.eu/data/aus.svg",
                 "AUD",
@@ -63,6 +56,12 @@ class CurrencyHolder {
                 "DKK",
                 "Danish krone",
                 endpointResponse.rates.DKK ?: 1.00
+            ),
+            Currency(
+                "https://upload.wikimedia.org/wikipedia/commons/b/b7/Flag_of_Europe.svg",
+                "EUR",
+                "Euro",
+                endpointResponse.rates.EUR ?: 1.00
             ),
             Currency(
                 "https://restcountries.eu/data/gbr.svg",
