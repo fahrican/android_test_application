@@ -2,12 +2,14 @@ package com.revolut.androidtestapplication.helper
 
 import com.revolut.androidtestapplication.model.Currency
 import com.revolut.androidtestapplication.model.EndpointResponse
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 class CurrencyHolder {
 
-    fun insertCurrencies(endpointResponse: EndpointResponse): ArrayList<Currency> {
-        return arrayListOf(
+    fun retrieveCurrencies(endpointResponse: EndpointResponse, position: Int): ArrayList<Currency> {
+        val currencies = arrayListOf(
             Currency(
                 "https://upload.wikimedia.org/wikipedia/commons/b/b7/Flag_of_Europe.svg",
                 "EUR",
@@ -201,5 +203,9 @@ class CurrencyHolder {
                 endpointResponse.rates.ZAR ?: 1.00
             )
         )
+
+        Collections.swap(currencies, 0, position)
+        return currencies
     }
+
 }
