@@ -28,9 +28,13 @@ class MainActivity : AppCompatActivity(), MoveObjectListener {
 
     private val viewModel: CurrencyViewModel by viewModels()
 
-    private val _userEnteredCurrency = MutableLiveData<String>()
-    val userEnteredCurrency: LiveData<String>
+    private val _userEnteredCurrency = MutableLiveData<String>(EURO)
+    private val userEnteredCurrency: LiveData<String>
         get() = _userEnteredCurrency
+
+    private val _positionOfCurrency = MutableLiveData<Int>(0)
+    private val positionOfCurrency: LiveData<Int>
+        get() = _positionOfCurrency
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -53,10 +57,14 @@ class MainActivity : AppCompatActivity(), MoveObjectListener {
 
     override fun onResume() {
         super.onResume()
-        /*Observable.interval(0, 1, TimeUnit.SECONDS)
+        Observable.interval(0, 1, TimeUnit.SECONDS)
             .timeInterval()
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe { viewModel.repository.fetchUserEnteredCurrency(userEnteredCurrency) }*/
+            .subscribe {
+                viewModel.repository.fetchUserEnteredCurrency(
+                    userEnteredCurrency.value ?: "", positionOfCurrency.value ?: 0
+                )
+            }
     }
 
     override fun onPause() {
@@ -65,7 +73,12 @@ class MainActivity : AppCompatActivity(), MoveObjectListener {
     }
 
     override fun moveObjectToFirstPlace(position: Int, code: String) {
-        viewModel.repository.fetchUserEnteredCurrency(code, position)
+        _positionOfCurrency.postValue(position)
+        _userEnteredCurrency.postValue(code)
+        viewModel.repository.fetchUserEnteredCurrency(
+            userEnteredCurrency.value ?: "",
+            positionOfCurrency.value ?: 0
+        )
     }
 
     private fun setUpRecyclerView() {
