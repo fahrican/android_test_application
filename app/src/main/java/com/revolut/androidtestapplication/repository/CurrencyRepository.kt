@@ -6,8 +6,8 @@ import androidx.lifecycle.MutableLiveData
 import com.revolut.androidtestapplication.data.network.RevolutCurrencyApi
 import com.revolut.androidtestapplication.di.DaggerAppComponent
 import com.revolut.androidtestapplication.helper.CurrencyHolder
-import com.revolut.androidtestapplication.internal.EURO
 import com.revolut.androidtestapplication.model.Currency
+import com.revolut.androidtestapplication.model.EndpointResponse
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
@@ -37,26 +37,6 @@ class CurrencyRepository {
         DaggerAppComponent.create().inject(this)
     }
 
-    fun initialFetchOfEuroRate(): Disposable { //todo: here should go in the currency code
-        return revolutService.getEndpointResponse(EURO)
-            .subscribeOn(Schedulers.io())
-            .subscribe(
-                {
-                    _isInProgress.postValue(true)
-                    if (it != null) {
-                        val list = currencyHolder.retrieveCurrencies(it, 0)
-                        _currencies.postValue(list)
-                    }
-                    _isInProgress.postValue(false)
-                },
-                {
-                    _isInProgress.postValue(true)
-                    Log.e("subscribeToObserver()", "network error: ${it.message}")
-                    _isError.postValue(true)
-                    _isInProgress.postValue(false)
-                })
-    }
-
     fun fetchUserEnteredCurrency(currencyCode: String, position: Int): Disposable {
         return revolutService.getEndpointResponse(currencyCode)
             .subscribeOn(Schedulers.io())
@@ -78,7 +58,7 @@ class CurrencyRepository {
 
     /*fun assignRates(endpointResponse: EndpointResponse, currency: String) {
 
-        _currencies.value.
+        endpointResponse.rates.AUD
     }*/
 
 }
