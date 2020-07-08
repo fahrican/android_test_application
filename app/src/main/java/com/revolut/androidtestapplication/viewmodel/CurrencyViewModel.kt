@@ -6,6 +6,7 @@ import com.revolut.androidtestapplication.repository.CurrencyRepository
 import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Inject
 
+
 class CurrencyViewModel : ViewModel() {
 
     @Inject
@@ -16,7 +17,6 @@ class CurrencyViewModel : ViewModel() {
 
     init {
         DaggerAppComponent.create().inject(this)
-        compositeDisposable.add(repository.initialFetchOfEuroRate())
     }
 
     override fun onCleared() {
