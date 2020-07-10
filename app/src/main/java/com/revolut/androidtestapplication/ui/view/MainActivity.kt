@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DefaultItemAnimator
 import com.revolut.androidtestapplication.R
 import com.revolut.androidtestapplication.di.DaggerAppComponent
@@ -27,7 +28,10 @@ class MainActivity : AppCompatActivity(), MoveObjectListener {
     @Inject
     lateinit var currencyAdapter: CurrencyAdapter
 
-    private val viewModel: CurrencyViewModel by viewModels()
+    @Inject
+    lateinit var viewModelFactory: ViewModelProvider.Factory
+
+    private val viewModel: CurrencyViewModel by viewModels { viewModelFactory }
 
     private val _userEnteredCurrency = MutableLiveData<String>(EURO)
     private val userEnteredCurrency: LiveData<String>
