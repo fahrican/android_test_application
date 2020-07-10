@@ -103,6 +103,7 @@ class MainActivity : AppCompatActivity(), MoveObjectListener {
         fullName: String,
         rate: Double
     ) {
+        //todo: maybe all this can be removed
         val currentFirstCurrency = currencyAdapter.currencies[0]
 
         // Assign values from first currency in list to tapped one
