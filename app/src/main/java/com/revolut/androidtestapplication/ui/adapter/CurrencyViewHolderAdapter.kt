@@ -15,7 +15,7 @@ import kotlin.collections.ArrayList
 
 
 class CurrencyAdapter(
-    val currencies: ArrayList<CurrencyItem>
+    private val currencies: ArrayList<CurrencyItem>
 ) : RecyclerView.Adapter<CurrencyViewHolder>() {
 
 
