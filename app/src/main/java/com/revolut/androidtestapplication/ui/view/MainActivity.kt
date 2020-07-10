@@ -58,14 +58,14 @@ class MainActivity : AppCompatActivity(), MoveObjectListener {
 
     override fun onResume() {
         super.onResume()
-        Observable.interval(0, 1, TimeUnit.SECONDS)
+        /*Observable.interval(0, 1, TimeUnit.SECONDS)
             .timeInterval()
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe {
                 viewModel.repository.fetchUserEnteredCurrency(
                     userEnteredCurrency.value ?: "", positionOfCurrency.value ?: 0
                 )
-            }
+            }*/
     }
 
     override fun onPause() {
