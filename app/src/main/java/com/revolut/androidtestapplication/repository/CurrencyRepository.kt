@@ -45,7 +45,7 @@ class CurrencyRepository {
                 {
                     _isInProgress.postValue(true)
                     if (it != null) {
-                        val list = currencyHolder.retrieveCurrencies(it, POSITION_OF_EURO_IN_DEFAULT_LIST)
+                        val list = currencyHolder.retrieveCurrencies(it, EURO)
                         _currencies.postValue(list)
                     }
                     _isInProgress.postValue(false)
@@ -58,13 +58,13 @@ class CurrencyRepository {
                 })
     }
 
-    fun fetchUserEnteredCurrency(currencyCode: String, position: Int): Disposable {
+    fun fetchUserEnteredCurrency(currencyCode: String): Disposable {
         return revolutService.getEndpointResponse(currencyCode)
             .subscribeOn(Schedulers.io())
             .subscribe(
                 {
                     if (it != null) {
-                        val list = currencyHolder.retrieveCurrencies(it, position)
+                        val list = currencyHolder.retrieveCurrencies(it, currencyCode)
                         _currencies.postValue(list)
                     }
                 },
