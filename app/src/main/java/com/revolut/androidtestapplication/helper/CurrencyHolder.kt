@@ -270,9 +270,6 @@ class CurrencyHolder {
             )
         )
 
-        /*val currency = currencies[position]
-        currencies.removeAt(position)
-        currencies.add(0, currency)*/
        val item: CurrencyItem? = currencies.find { it.shortName == currencyCode }
         if (item != null) {
             val position = currencies.indexOf(item)
