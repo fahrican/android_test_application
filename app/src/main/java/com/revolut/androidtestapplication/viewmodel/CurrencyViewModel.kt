@@ -7,10 +7,7 @@ import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Inject
 
 
-class CurrencyViewModel : ViewModel() {
-
-    @Inject
-    lateinit var repository: CurrencyRepository
+class CurrencyViewModel @Inject constructor(val repository: CurrencyRepository) : ViewModel() {
 
     val compositeDisposable by lazy { CompositeDisposable() }
 
