@@ -65,14 +65,20 @@
                 tools:text="Euro" />
 
             <EditText
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:id="@+id/currency_rate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
                 android:hint="0.00"
+                android:imeOptions="actionDone"
                 android:inputType="numberDecimal"
+                android:lines="1"
+                android:maxLength="8"
                 android:text="@{currency.rateToString}"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="112.98" />
+                tools:text="1183.068" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
