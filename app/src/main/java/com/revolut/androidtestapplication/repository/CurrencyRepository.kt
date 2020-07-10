@@ -3,12 +3,14 @@ package com.revolut.androidtestapplication.repository
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Observer
 import com.revolut.androidtestapplication.data.network.RevolutCurrencyApi
 import com.revolut.androidtestapplication.di.DaggerAppComponent
 import com.revolut.androidtestapplication.helper.CurrencyHolder
 import com.revolut.androidtestapplication.internal.EURO
 import com.revolut.androidtestapplication.internal.POSITION_OF_EURO_IN_DEFAULT_LIST
 import com.revolut.androidtestapplication.model.CurrencyItem
+import com.revolut.androidtestapplication.model.EndpointResponse
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
@@ -30,6 +32,10 @@ class CurrencyRepository {
     private val _isError by lazy { MutableLiveData<Boolean>() }
     val isError: LiveData<Boolean>
         get() = _isError
+
+    private val _currencyRates by lazy { MutableLiveData<List<Double>>() }
+    val currencyRates: LiveData<List<Double>>
+        get() = _currencyRates
 
     private val currencyHolder = CurrencyHolder() //todo: rework this
 
@@ -77,9 +83,10 @@ class CurrencyRepository {
             )
     }
 
-    /*fun assignRates(endpointResponse: EndpointResponse, currency: String) {
+    /* fun assignRates(endpointResponse: EndpointResponse, currency: String) {
 
-        _currencies.value.
+        _currencies.observe(, Observer { currencies ->
+        }
+
     }*/
-
 }
