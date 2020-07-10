@@ -15,32 +15,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
+        android:elevation="8dp"
         android:minHeight="?listPreferredItemHeightLarge"
-        app:cardCornerRadius="4dp">
+        app:cardCornerRadius="8dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <LinearLayout
+            <ImageView
                 android:id="@+id/image_container"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:layout_margin="8dp"
                 android:layout_marginEnd="8dp"
-                android:orientation="vertical"
+                app:imageUrl="@{currency.flag}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <ImageView
-                    android:id="@+id/currency_flag"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:imageUrl="@{currency.flag}"
-                    tools:src="@drawable/ic_aud" />
-
-            </LinearLayout>
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/ic_aud" />
 
             <TextView
                 android:id="@+id/currency_short_name"
