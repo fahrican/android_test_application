@@ -30,6 +30,7 @@ class MainActivity : AppCompatActivity(), MoveObjectListener {
 
     private val viewModel: CurrencyViewModel by viewModels { viewModelFactory }
 
+    private var currencyCode = EURO
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,9 +56,7 @@ class MainActivity : AppCompatActivity(), MoveObjectListener {
             .timeInterval()
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe {
-                viewModel.repository.fetchUserEnteredCurrency(
-                    userEnteredCurrency.value ?: "", positionOfCurrency.value ?: 0
-                )
+                viewModel.repository.fetchUserEnteredCurrency(currencyCode)
             }*/
     }
 
@@ -114,7 +113,9 @@ class MainActivity : AppCompatActivity(), MoveObjectListener {
         currencyAdapter.currencies[0].fullName = fullName
         currencyAdapter.currencies[0].rate = 1.0
 
-        viewModel.repository.fetchUserEnteredCurrency(code)
+        currencyCode = code
+
+        viewModel.repository.fetchUserEnteredCurrency(currencyCode)
     }
 
     private fun setUpRecyclerView() {
