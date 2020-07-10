@@ -2,7 +2,7 @@ package com.revolut.androidtestapplication.di
 
 import com.revolut.androidtestapplication.data.network.RevolutCurrencyApi
 import com.revolut.androidtestapplication.data.network.RevolutCurrencyService
-import com.revolut.androidtestapplication.model.Currency
+import com.revolut.androidtestapplication.model.CurrencyItem
 import com.revolut.androidtestapplication.repository.CurrencyRepository
 import com.revolut.androidtestapplication.ui.adapter.CurrencyAdapter
 import dagger.Module
@@ -21,9 +21,9 @@ object AppModule {
     fun provideRepository() = CurrencyRepository()
 
     @Provides
-    fun provideCurrencies() = ArrayList<Currency>()
+    fun provideCurrencies() = ArrayList<CurrencyItem>()
 
     @Provides
-    fun provideAdapter(currencies: ArrayList<Currency>) = CurrencyAdapter(currencies)
+    fun provideAdapter(currencies: ArrayList<CurrencyItem>) = CurrencyAdapter(currencies)
 
 }

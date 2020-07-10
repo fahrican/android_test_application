@@ -8,14 +8,14 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.revolut.androidtestapplication.R
 import com.revolut.androidtestapplication.databinding.ItemCurrencyBinding
-import com.revolut.androidtestapplication.model.Currency
+import com.revolut.androidtestapplication.model.CurrencyItem
 import com.revolut.androidtestapplication.ui.view.MoveObjectListener
 import java.lang.ref.WeakReference
 import kotlin.collections.ArrayList
 
 
 class CurrencyAdapter(
-    val currencies: ArrayList<Currency>
+    val currencies: ArrayList<CurrencyItem>
 ) : RecyclerView.Adapter<CurrencyViewHolder>() {
 
 
@@ -48,7 +48,7 @@ class CurrencyAdapter(
         }
     }
 
-    fun setUpCurrencies(newCurrencies: List<Currency>) {
+    fun setUpCurrencies(newCurrencies: List<CurrencyItem>) {
         currencies.clear()
         currencies.addAll(newCurrencies)
         notifyDataSetChanged()

@@ -8,7 +8,7 @@ import com.revolut.androidtestapplication.di.DaggerAppComponent
 import com.revolut.androidtestapplication.helper.CurrencyHolder
 import com.revolut.androidtestapplication.internal.EURO
 import com.revolut.androidtestapplication.internal.POSITION_OF_EURO_IN_DEFAULT_LIST
-import com.revolut.androidtestapplication.model.Currency
+import com.revolut.androidtestapplication.model.CurrencyItem
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
@@ -19,8 +19,8 @@ class CurrencyRepository {
     @Inject
     lateinit var revolutService: RevolutCurrencyApi
 
-    private val _currencies by lazy { MutableLiveData<List<Currency>>() }
-    val currencies: LiveData<List<Currency>>
+    private val _currencies by lazy { MutableLiveData<List<CurrencyItem>>() }
+    val currencies: LiveData<List<CurrencyItem>>
         get() = _currencies
 
     private val _isInProgress by lazy { MutableLiveData<Boolean>() }

@@ -1,6 +1,6 @@
 package com.revolut.androidtestapplication.model
 
-data class Currency(
+data class CurrencyItem(
     var flag: String,
     var shortName: String,
     var fullName: String,

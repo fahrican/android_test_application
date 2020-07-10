@@ -7,7 +7,7 @@
 
         <variable
             name="currency"
-            type="com.revolut.androidtestapplication.model.Currency" />
+            type="com.revolut.androidtestapplication.model.CurrencyItem" />
     </data>
 
     <androidx.cardview.widget.CardView
