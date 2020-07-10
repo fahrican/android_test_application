@@ -2,19 +2,23 @@ package com.revolut.androidtestapplication.helper
 
 import com.revolut.androidtestapplication.model.CurrencyItem
 import com.revolut.androidtestapplication.model.EndpointResponse
+import java.util.*
 import kotlin.collections.ArrayList
 
 
 class CurrencyHolder {
 
-    fun retrieveCurrencies(endpointResponse: EndpointResponse, position: Int): ArrayList<CurrencyItem> {
+    fun retrieveCurrencies(
+        endpointResponse: EndpointResponse,
+        currencyCode: String
+    ): ArrayList<CurrencyItem> {
         val currencies = ArrayList<CurrencyItem>(32)
         currencies.add(
             0, CurrencyItem(
-                "https://restcountries.eu/data/aus.svg",
-                "AUD",
-                "Australian dollar",
-                endpointResponse.rates.AUD ?: 1.00
+                "https://upload.wikimedia.org/wikipedia/commons/b/b7/Flag_of_Europe.svg",
+                "EUR",
+                "Euro",
+                endpointResponse.rates.EUR ?: 1.00
             )
         )
         currencies.add(
@@ -75,10 +79,10 @@ class CurrencyHolder {
         )
         currencies.add(
             8, CurrencyItem(
-                "https://upload.wikimedia.org/wikipedia/commons/b/b7/Flag_of_Europe.svg",
-                "EUR",
-                "Euro",
-                endpointResponse.rates.EUR ?: 1.00
+                "https://restcountries.eu/data/aus.svg",
+                "AUD",
+                "Australian dollar",
+                endpointResponse.rates.AUD ?: 1.00
             )
         )
         currencies.add(
@@ -266,9 +270,15 @@ class CurrencyHolder {
             )
         )
 
-        val currency = currencies[position]
+        /*val currency = currencies[position]
         currencies.removeAt(position)
-        currencies.add(0, currency)
+        currencies.add(0, currency)*/
+       val item: CurrencyItem? = currencies.find { it.shortName == currencyCode }
+        if (item != null) {
+            val position = currencies.indexOf(item)
+            currencies.removeAt(position)
+            currencies.add(0, item)
+        }
         return currencies
     }
 
