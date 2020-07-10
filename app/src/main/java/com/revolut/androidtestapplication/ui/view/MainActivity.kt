@@ -34,14 +34,6 @@ class MainActivity : AppCompatActivity(), MoveObjectListener {
 
     private val viewModel: CurrencyViewModel by viewModels { viewModelFactory }
 
-    private val _userEnteredCurrency = MutableLiveData<String>(EURO)
-    private val userEnteredCurrency: LiveData<String>
-        get() = _userEnteredCurrency
-
-    private val _positionOfCurrency = MutableLiveData<Int>(POSITION_OF_EURO_IN_DEFAULT_LIST)
-    private val positionOfCurrency: LiveData<Int>
-        get() = _positionOfCurrency
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
