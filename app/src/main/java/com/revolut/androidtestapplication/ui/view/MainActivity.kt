@@ -155,5 +155,13 @@ class MainActivity : AppCompatActivity(), MoveObjectListener {
 
 interface MoveObjectListener {
 
-    fun moveObjectToFirstPlace(position: Int, code: String)
+    //fun moveObjectToFirstPlace(position: Int, currencyItem: CurrencyItem)
+
+    fun moveObjectToFirstPlace(
+        position: Int,
+        flag: String,
+        code: String,
+        fullName: String,
+        rate: Double
+    )
 }
