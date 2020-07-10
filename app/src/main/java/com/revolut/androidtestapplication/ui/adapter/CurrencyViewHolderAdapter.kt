@@ -15,7 +15,7 @@ import kotlin.collections.ArrayList
 
 
 class CurrencyAdapter(
-    private val currencies: ArrayList<CurrencyItem>
+    val currencies: ArrayList<CurrencyItem>
 ) : RecyclerView.Adapter<CurrencyViewHolder>() {
 
 
@@ -44,7 +44,14 @@ class CurrencyAdapter(
                 "Taped on ${currencies[position].shortName}",
                 Toast.LENGTH_SHORT
             ).show()
-            listener?.get()?.moveObjectToFirstPlace(position, currencies[position].shortName)
+            //listener?.get()?.moveObjectToFirstPlace(position, currencies[position])
+            listener?.get()?.moveObjectToFirstPlace(
+                position,
+                currencies[position].flag,
+                currencies[position].shortName,
+                currencies[position].fullName,
+                currencies[position].rate
+            )
         }
     }
 
