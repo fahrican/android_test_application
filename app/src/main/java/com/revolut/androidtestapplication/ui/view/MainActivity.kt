@@ -105,7 +105,7 @@ class MainActivity : AppCompatActivity(), MoveObjectListener {
         currencyAdapter.currencies[position].flag = currentFirstCurrency.flag
         currencyAdapter.currencies[position].shortName = currentFirstCurrency.shortName
         currencyAdapter.currencies[position].fullName = currentFirstCurrency.fullName
-        currencyAdapter.currencies[position].rateToString = currentFirstCurrency.rateToString
+        currencyAdapter.currencies[position].rate = currentFirstCurrency.rate
 
         // Assign values from selected currency to first one
         currencyAdapter.currencies[0].flag = flag
