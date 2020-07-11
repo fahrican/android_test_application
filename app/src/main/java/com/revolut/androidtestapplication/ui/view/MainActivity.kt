@@ -65,32 +65,6 @@ class MainActivity : AppCompatActivity(), MoveObjectListener {
         viewModel.compositeDisposable.clear()
     }
 
-
-    /*override fun moveObjectToFirstPlace(position: Int, currencyItem: CurrencyItem) {
-
-  val previousFirstItem = CurrencyItem(
-      currencyAdapter.currencies[0].flag,
-      currencyAdapter.currencies[0].shortName,
-      currencyAdapter.currencies[0].fullName,
-      currencyAdapter.currencies[0].rate
-  )
-
-  currencyAdapter.currencies[0].flag = currencyItem.flag
-  currencyAdapter.currencies[0].shortName = currencyItem.shortName
-  currencyAdapter.currencies[0].fullName = currencyItem.fullName
-  currencyAdapter.currencies[0].rate = 1.0
-
-  currencyAdapter.currencies[position].flag = previousFirstItem.flag
-  currencyAdapter.currencies[position].shortName = previousFirstItem.shortName
-  currencyAdapter.currencies[position].fullName = previousFirstItem.fullName
-  currencyAdapter.currencies[position].rate = previousFirstItem.rate
-
-  _positionOfCurrency.postValue(position)
-  _userEnteredCurrency.postValue(currencyItem.shortName)
-
-  viewModel.repository.fetchUserEnteredCurrency(userEnteredCurrency.value ?: "")
-  } */
-
     override fun moveObjectToFirstPlace(
         position: Int,
         flag: String,
