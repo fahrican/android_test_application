@@ -3,7 +3,7 @@ package com.revolut.androidtestapplication.model
 import androidx.databinding.BaseObservable
 import androidx.databinding.Bindable
 import androidx.databinding.library.baseAdapters.BR
-import com.revolut.androidtestapplication.internal.userEnteredAmount
+import com.revolut.androidtestapplication.CurrencyApplication
 
 data class CurrencyItem(
     var flag: String,
@@ -13,12 +13,13 @@ data class CurrencyItem(
 ) : BaseObservable() {
 
     @Bindable
-    var rateTimesAmount: String = (userEnteredAmount * rate).toString()
+    var rateTimesAmount: String = (CurrencyApplication.userEnteredAmount * rate).toString()
         set(amount) {
             val amountAsDouble = amount.toDouble()
             val number2digits: Double = String.format("%.2f", amountAsDouble).toDouble()
-            userEnteredAmount = number2digits
+            CurrencyApplication.userEnteredAmount = number2digits
             field = number2digits.toString()
             notifyPropertyChanged(BR.rateTimesAmount)
         }
+
 }
