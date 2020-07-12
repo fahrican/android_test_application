@@ -11,7 +11,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.revolut.androidtestapplication.R
 import com.revolut.androidtestapplication.databinding.ItemCurrencyBinding
-import com.revolut.androidtestapplication.internal.userEnteredAmount
 import com.revolut.androidtestapplication.model.CurrencyItem
 import com.revolut.androidtestapplication.ui.view.MoveObjectListener
 import kotlinx.android.synthetic.main.item_currency.view.*
