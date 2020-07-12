@@ -161,8 +161,6 @@ class MainActivity : AppCompatActivity(), MoveObjectListener {
 
 interface MoveObjectListener {
 
-    //fun moveObjectToFirstPlace(position: Int, currencyItem: CurrencyItem)
-
     fun moveObjectToFirstPlace(
         position: Int,
         flag: String,
@@ -170,4 +168,5 @@ interface MoveObjectListener {
         fullName: String,
         rate: Double
     )
+
 }
