@@ -13,7 +13,9 @@ data class CurrencyItem(
 ) : BaseObservable() {
 
     @Bindable
-    var rateTimesAmount: String = (CurrencyApplication.userEnteredAmount * rate).toString()
+    var rateTimesAmount: String = ""
+        get() =
+            (CurrencyApplication.userEnteredAmount * rate).toString()
         set(amount) {
             val amountAsDouble = amount.toDouble()
             val number2digits: Double = String.format("%.2f", amountAsDouble).toDouble()
