@@ -48,7 +48,6 @@ class CurrencyAdapter(
                 "Taped on ${currencies[position].shortName}",
                 Toast.LENGTH_SHORT
             ).show()
-            //listener?.get()?.moveObjectToFirstPlace(position, currencies[position])
             listener?.get()?.moveObjectToFirstPlace(
                 position,
                 currencies[position].flag,
@@ -57,23 +56,6 @@ class CurrencyAdapter(
                 currencies[position].rate
             )
         }
-        /*currencyAdapter.viewHolder.itemCurrencyBinding.currencyRate.addTextChangedListener(object :
-            TextWatcher {
-            override fun afterTextChanged(p0: Editable?) {
-                Log.v("onBindViewHolder", "afterTextChanged -> ${p0.toString()}")
-                Log.v("onBindViewHolder after", "$userEnteredAmount")
-            }
-
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                Log.v("onBindViewHolder", "beforeTextChanged")
-            }
-
-            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                Log.v("onBindViewHolder before", "$userEnteredAmount")
-                userEnteredAmount = p0.toString().toDouble()
-                Log.v("onBindViewHolder after", "$userEnteredAmount")
-            }
-        })*/
     }
 
     fun setUpCurrencies(newCurrencies: List<CurrencyItem>) {
