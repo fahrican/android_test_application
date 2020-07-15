@@ -17,7 +17,7 @@ import kotlin.collections.ArrayList
 
 class CurrencyAdapter(
     val currencies: ArrayList<CurrencyItem>
-) : RecyclerView.Adapter<CurrencyViewHolder>() {
+) : RecyclerView.Adapter<CurrencyViewHolder>(), AmountListener {
 
 
     lateinit var adapterContext: Context
@@ -53,6 +53,10 @@ class CurrencyAdapter(
                 currencies[position].rate
             )
         }
+    }
+
+    override fun triggerNotify() {
+        notifyDataSetChanged()
     }
 
     fun setUpCurrencies(newCurrencies: List<CurrencyItem>) {
