@@ -30,5 +30,5 @@ data class CurrencyItem(
 }
 
 interface AmountListener {
-    fun triggerNotify()
+    fun triggerNotifyDataSetChanged()
 }

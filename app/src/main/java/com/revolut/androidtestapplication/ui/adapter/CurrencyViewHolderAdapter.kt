@@ -56,7 +56,7 @@ class CurrencyAdapter(
         }
     }
 
-    override fun triggerNotify() {
+    override fun triggerNotifyDataSetChanged() {
         notifyDataSetChanged()
     }
 
