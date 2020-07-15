@@ -20,7 +20,7 @@ class CurrencyAdapter(
 ) : RecyclerView.Adapter<CurrencyViewHolder>(), AmountListener {
 
 
-    lateinit var adapterContext: Context
+    private lateinit var adapterContext: Context
     var listener: WeakReference<MoveObjectListener>? = null
 
 
