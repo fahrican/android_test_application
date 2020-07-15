@@ -4,6 +4,7 @@ import androidx.databinding.BaseObservable
 import androidx.databinding.Bindable
 import androidx.databinding.library.baseAdapters.BR
 import com.revolut.androidtestapplication.CurrencyApplication
+import java.lang.ref.WeakReference
 
 data class CurrencyItem(
     var flag: String,
@@ -12,7 +13,7 @@ data class CurrencyItem(
     var rate: Double
 ) : BaseObservable() {
 
-    var listener: AmountListener? = null
+    lateinit var listener: WeakReference<AmountListener>
 
     @Bindable
     var rateTimesAmount: String = ""
@@ -24,7 +25,7 @@ data class CurrencyItem(
             CurrencyApplication.userEnteredAmount = number2digits
             field = number2digits.toString()
             notifyPropertyChanged(BR.rateTimesAmount)
-            listener?.triggerNotify()
+            listener.get()?.triggerNotifyDataSetChanged()
         }
 
 }

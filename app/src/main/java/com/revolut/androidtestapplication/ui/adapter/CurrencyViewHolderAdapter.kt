@@ -39,7 +39,7 @@ class CurrencyAdapter(
 
     override fun onBindViewHolder(holder: CurrencyViewHolder, position: Int) {
         holder.itemCurrencyBinding.currency = currencies[position]
-        (holder.itemCurrencyBinding.currency as CurrencyItem).listener = this
+        (holder.itemCurrencyBinding.currency as CurrencyItem).listener = WeakReference(this)
         holder.itemCurrencyBinding.currencyCard.setOnClickListener {
             Toast.makeText(
                 adapterContext,
