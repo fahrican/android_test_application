@@ -12,6 +12,8 @@ data class CurrencyItem(
     var rate: Double
 ) : BaseObservable() {
 
+    var listener: AmountListener? = null
+
     @Bindable
     var rateTimesAmount: String = ""
         get() =
@@ -22,6 +24,11 @@ data class CurrencyItem(
             CurrencyApplication.userEnteredAmount = number2digits
             field = number2digits.toString()
             notifyPropertyChanged(BR.rateTimesAmount)
+            listener?.triggerNotify()
         }
 
+}
+
+interface AmountListener {
+    fun triggerNotify()
 }
