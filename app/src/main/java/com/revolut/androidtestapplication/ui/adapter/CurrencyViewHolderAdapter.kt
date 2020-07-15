@@ -1,9 +1,6 @@
 package com.revolut.androidtestapplication.ui.adapter
 
 import android.content.Context
-import android.text.Editable
-import android.text.TextWatcher
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
@@ -11,9 +8,9 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.revolut.androidtestapplication.R
 import com.revolut.androidtestapplication.databinding.ItemCurrencyBinding
+import com.revolut.androidtestapplication.model.AmountListener
 import com.revolut.androidtestapplication.model.CurrencyItem
 import com.revolut.androidtestapplication.ui.view.MoveObjectListener
-import kotlinx.android.synthetic.main.item_currency.view.*
 import java.lang.ref.WeakReference
 import kotlin.collections.ArrayList
 
