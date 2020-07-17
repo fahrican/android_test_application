@@ -1,31 +1,29 @@
 package com.revolut.androidtestapplication.model
 
-import androidx.databinding.BaseObservable
-import androidx.databinding.Bindable
-import androidx.databinding.library.baseAdapters.BR
 import com.revolut.androidtestapplication.CurrencyApplication
 import java.lang.ref.WeakReference
+import java.math.BigDecimal
 
 data class CurrencyItem(
     var flag: String,
     var shortName: String,
     var fullName: String,
     var rate: Double
-) : BaseObservable() {
+) {
 
     lateinit var listener: WeakReference<AmountListener>
 
-    @Bindable
     var rateTimesAmount: String = ""
         get() =
-            (CurrencyApplication.userEnteredAmount * rate).toString()
+            //String.format("%.2f", (CurrencyApplication.userEnteredAmount * 2))
+            (CurrencyApplication.userEnteredAmount * 2).toString()
         set(amount) {
-            val amountAsDouble = amount.toDouble()
-            val number2digits: Double = String.format("%.2f", amountAsDouble).toDouble()
-            CurrencyApplication.userEnteredAmount = number2digits
-            field = number2digits.toString()
-            notifyPropertyChanged(BR.rateTimesAmount)
+            val amountAsDecimal = BigDecimal(amount)
+            val number2digits = BigDecimal(String.format("%.2f", amountAsDecimal))
+            CurrencyApplication.userEnteredAmount = number2digits.toInt()
+            field = amountAsDecimal.toString()
             listener.get()?.triggerNotifyDataSetChanged()
+            //notifyPropertyChanged(BR.rateTimesAmount)
         }
 
 }
