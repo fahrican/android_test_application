@@ -16,11 +16,12 @@ data class CurrencyItem(
     var rateTimesAmount: String = ""
         get() =
             //String.format("%.2f", (CurrencyApplication.userEnteredAmount * 2))
-            (CurrencyApplication.userEnteredAmount * 2).toString()
+            (CurrencyApplication.userEnteredAmount).toString()
         set(amount) {
-            val amountAsDecimal = BigDecimal(amount)
+            val amountAsDecimal = amount.toDouble()
+            //val amountTimesRate = amountAsDecimal * rate
             val number2digits = BigDecimal(String.format("%.2f", amountAsDecimal))
-            CurrencyApplication.userEnteredAmount = number2digits.toInt()
+            CurrencyApplication.userEnteredAmount = number2digits.toDouble()
             field = amountAsDecimal.toString()
             listener.get()?.triggerNotifyDataSetChanged()
             //notifyPropertyChanged(BR.rateTimesAmount)
