@@ -5,10 +5,10 @@ import java.lang.ref.WeakReference
 import java.math.BigDecimal
 
 data class CurrencyItem(
-    var flag: String,
-    var shortName: String,
-    var fullName: String,
-    var rate: Double
+    val flag: String,
+    val shortName: String,
+    val fullName: String,
+    val rate: Double
 ) {
 
     lateinit var listener: WeakReference<AmountListener>
