@@ -15,7 +15,6 @@ data class CurrencyItem(
 
     var rateTimesAmount: String = ""
         get() =
-            //String.format("%.2f", (CurrencyApplication.userEnteredAmount * 2))
             (CurrencyApplication.userEnteredAmount).toString()
         set(amount) {
             val amountAsDecimal = amount.toDouble()
@@ -24,7 +23,6 @@ data class CurrencyItem(
             CurrencyApplication.userEnteredAmount = number2digits.toDouble()
             field = amountAsDecimal.toString()
             listener.get()?.triggerNotifyDataSetChanged()
-            //notifyPropertyChanged(BR.rateTimesAmount)
         }
 
 }
